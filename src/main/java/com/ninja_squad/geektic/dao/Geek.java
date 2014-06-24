@@ -1,4 +1,5 @@
 package com.ninja_squad.geektic.dao;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -41,7 +42,7 @@ public class Geek {
 	@JoinTable(name = "GEEK_INTERET", 
 	           joinColumns = @JoinColumn(name = "ID_GEEK"),
 	           inverseJoinColumns = @JoinColumn(name = "ID_INTERET"))
-	public Set<Interet> interets;
+	public List<Interet> interets;
 	
 	@Transient
 	public String gravatar;
@@ -49,7 +50,7 @@ public class Geek {
 	public Geek(){}
 	
 	public Geek(EnumGenre genre, String nom, String prenom, int age,
-			String mail, Set<Interet> interets) {
+			String mail, List<Interet> interets) {
 		
 		this.genre = genre;
 		this.nom = nom;
@@ -99,11 +100,11 @@ public class Geek {
 		this.mail = mail;
 	}
 	
-	public Set<Interet> getInterets() {
+	public List<Interet> getInterets() {
 		return interets;
 	}
 	
-	public void setInterets(Set<Interet> interets) {
+	public void setInterets(List<Interet> interets) {
 		this.interets = interets;
 	}
 	

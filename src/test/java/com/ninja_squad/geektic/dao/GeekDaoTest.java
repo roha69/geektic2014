@@ -1,24 +1,18 @@
 package com.ninja_squad.geektic.dao;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-import com.ninja_squad.geektic.dao.*;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.Operations;
 import com.ninja_squad.dbsetup.operation.Operation;
-
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * DAO Test GEEK
@@ -62,14 +56,23 @@ public class GeekDaoTest extends BaseDaoTest {
     @Test
     public void testFindAll() {
     	List<Geek> geeks = dao.findAll();
-    	assertEquals(geeks.get(0).getNom(),"HALTER");
-    	assertEquals(geeks.get(1).getNom(),"CAMILLE");
+    	assertEquals("HALTER",geeks.get(0).getNom());
+    	assertEquals("CAMILLE",geeks.get(1).getNom());
     }
     
     @Test
     public void testFindId(){
     	Geek geek = dao.findById(1L);
     	assertEquals("Romain", geek.getPrenom());
+    }
+    
+    @Test
+    public void testFindByCriteria(){
+   	
+    	List<Long> interets = Arrays.asList(1L, 2L);
+
+    	List<Geek> geeks = dao.findByCriteria(EnumGenre.HOMME, interets);
+    	assertEquals("HALTER",geeks.get(0).getNom());
     }
     
 }
