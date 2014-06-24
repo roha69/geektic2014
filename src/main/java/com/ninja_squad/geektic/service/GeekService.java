@@ -1,16 +1,15 @@
 package com.ninja_squad.geektic.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ninja_squad.geektic.dao.Geek;
 import com.ninja_squad.geektic.dao.GeekDAO;
-import com.ninja_squad.geektic.dao.Interet;
-import com.ninja_squad.geektic.dao.Geek.enumGenre;
 
 import javax.transaction.Transactional;
 
@@ -25,8 +24,14 @@ public class GeekService {
 	@Autowired
 	private GeekDAO geekDAO;
 	
-    @RequestMapping(method = GET)
-    public Geek getGeek(Long id) {
-    	return geekDAO.findById(1L);
+    @RequestMapping(value = " /id/{id}",method = GET)
+    public Geek getGeek(@PathVariable Long id) {
+    	return geekDAO.findById(id);
     }
+    
+    @RequestMapping(method = GET)
+    public List<Geek> listGeeks(){
+    	return geekDAO.findAll();
+    }
+    
 }

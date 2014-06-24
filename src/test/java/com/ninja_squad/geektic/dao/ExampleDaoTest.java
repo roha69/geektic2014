@@ -21,8 +21,8 @@ public class ExampleDaoTest extends BaseDaoTest {
 					Operations.deleteAllFrom("geek", "interet"),
 					Operations.insertInto("geek")
 					          .columns("id", "genre", "nom", "prenom", "age", "mail")
-					          .values(1L, Geek.enumGenre.HOMME, "HALTER", "Romain",22,"romainhalter@gmx.fr")
-							  .values(2L, Geek.enumGenre.FEMME, "CAMILLE", "Elodie",21,"ecamille@gmail.com")
+					          .values(1L,EnumGenre.HOMME, "HALTER", "Romain",22,"romainhalter@gmx.fr")
+							  .values(2L,EnumGenre.FEMME, "CAMILLE", "Elodie",21,"ecamille@gmail.com")
 					          .build(),
 					Operations.insertInto("interet")
 					          .columns("id", "id_geek", "nom")

@@ -1,5 +1,4 @@
 package com.ninja_squad.geektic.dao;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -12,12 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
 @Entity
@@ -25,24 +20,17 @@ import javax.persistence.Transient;
 @Table(name="geek")
 public class Geek {
 	
-	public enum enumGenre {
-		HOMME,FEMME
-	}
-	
 	@Id 
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "geek_seq")
 	private Long id;
 	
 	@Enumerated(EnumType.STRING)
 	@Column(name = "genre")
-	public enumGenre genre;
-	
+	public EnumGenre genre;
 	
 	public String nom;
 	
-	
 	public String prenom;
-	
 	
 	public int age;
 	
@@ -58,10 +46,9 @@ public class Geek {
 	@Transient
 	public String gravatar;
 
-
 	public Geek(){}
 	
-	public Geek(enumGenre genre, String nom, String prenom, int age,
+	public Geek(EnumGenre genre, String nom, String prenom, int age,
 			String mail, Set<Interet> interets) {
 		
 		this.genre = genre;
@@ -72,11 +59,11 @@ public class Geek {
 		this.interets = interets;
 	}
 
-	public enumGenre getGenre() {
+	public EnumGenre getGenre() {
 		return genre;
 	}
 	
-	public void setGenre(enumGenre genre) {
+	public void setGenre(EnumGenre genre) {
 		this.genre = genre;
 	}
 	
