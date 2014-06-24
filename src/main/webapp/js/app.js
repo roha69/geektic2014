@@ -12,5 +12,11 @@ app.controller('MainCtrl', function($scope, $http) {
 	  $http.get('/api/interet/').success(function(interets) {
 		  $scope.interets = interets;
 	  });
+	  
+	  $scope.genres = [
+	                   {nom:'Homme'},
+	                   {nom:'Femme'}
+	                 ];
+	  $scope.genre = $scope.genres[1];
 	
 });

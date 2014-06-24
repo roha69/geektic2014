@@ -3,33 +3,33 @@
 <html ng-app="geektic">
     <head>
         <title>Geektic</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
     </head>
     <body ng-controller="MainCtrl">
-        
-        <h1>Hello</h1>
-	<div>
+	<h1 align="center">GEEKTIC</h1>
+
+	
+	<div ng-view></div>
+	
+	<div style="margin:20px;">
 	  {{geeks.length}} geeks disponibles:
 	  <ul>
 	    <li ng-repeat="geek in geeks">
-	      {{geek.nom}}
+	      {{geek.prenom}} {{geek.nom}}
 	    </li>
 	  </ul>
-	</div>
 	
-	<form>
-		<select>
-			<option>Homme</option>
-			<option>Femme</option>		
-		</select>
+		<select ng-model="genre" ng-options="genre.nom for genre in genres"></select><br>
 		
 		<div ng-repeat="interet in interets">
 			<input type="checkbox" id={{interet.id}} /> {{interet.nom}}
 		</div>
 	
-	</form>
+	</div>
 
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>
         <script src="/js/app.js"></script>
+        <script src="js/bootstrap.min.js"></script>
     </body>
 </html>
