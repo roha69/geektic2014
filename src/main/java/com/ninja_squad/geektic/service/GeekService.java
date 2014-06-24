@@ -31,6 +31,7 @@ public class GeekService {
     
     @RequestMapping(method = GET)
     public List<Geek> listGeeks(){
+   
     	return geekDAO.findAll();
     }
     

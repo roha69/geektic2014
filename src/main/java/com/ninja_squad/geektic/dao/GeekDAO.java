@@ -5,10 +5,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 
 import org.springframework.stereotype.Repository;
 
@@ -34,12 +30,12 @@ public class GeekDAO {
 	 * @return List<Geek>
 	 */
 	public List<Geek> findAll(){
-		TypedQuery<Geek> query = entityManager.createQuery("SELECT r FROM Geek r", Geek.class);
+		TypedQuery<Geek> query = entityManager.createQuery("SELECT g FROM Geek g left join fetch g.interets", Geek.class);
 	    return query.getResultList();
 	}
 		
 	/**
-	 * Retourne selon les critères genre et intérets 
+	 * Retourne liste geek selon les critères genre et intérets 
 	 * @return List<Geek>
 	 */
 	public List<Geek> findByCriteria(EnumGenre genre, List<Interet> interets){

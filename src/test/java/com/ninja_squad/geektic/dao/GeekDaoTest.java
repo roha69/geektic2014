@@ -1,5 +1,9 @@
 package com.ninja_squad.geektic.dao;
 
+import static org.junit.Assert.*;
+
+import java.util.List;
+
 import com.ninja_squad.geektic.dao.*;
 
 import javax.persistence.EntityManager;
@@ -22,10 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class GeekDaoTest extends BaseDaoTest {
 
-    // You can autowire the DAO to test here. For example:
-    // @Autowired
-    // private ExampleDao exampleDao;
-
 	public static final Operation STANDARD_OPERATION = 
 			Operations.sequenceOf(
 					Operations.deleteAllFrom("geek", "interet"),
@@ -35,30 +35,41 @@ public class GeekDaoTest extends BaseDaoTest {
 							  .values(2L, EnumGenre.FEMME, "CAMILLE", "Elodie",21,"ecamille@gmail.com")
 					          .build(),
 					Operations.insertInto("interet")
-					          .columns("id", "id_geek", "nom")
-					          .values(1L, 1L, "C")
-							  .values(2L, 1L, "java")
-							  .values(3L, 1L, "JS")
-							  .values(4L, 2L, "HTML")
+					          .columns("id", "nom")
+					          .values(1L, "C")
+							  .values(2L, "java")
+							  .values(3L, "JS")
+							  .values(4L, "HTML")
+					          .build(),
+				Operations.insertInto("geek_interet")
+					          .columns("id_geek", "id_interet")
+					          .values(1L, 1L)
+							  .values(1L, 2L)
+							  .values(2L, 1L)
+							  .values(2L, 3L)
+							  .values(2L, 4L)
 					          .build());
 	@Autowired
 	private GeekDAO dao;
 
+	@Before
     public void populateDatabase() {
         Operation operation = Operations.sequenceOf(STANDARD_OPERATION); 
         DbSetup dbSetup = new DbSetup(destination, operation);
         dbSetup.launch();
     }
-	
-	@Before
-	public void setUp() throws Exception {
-		populateDatabase();
-		em.getTransaction().begin();
-	}
 
     @Test
-    public void testSomeDaoMethod() {
-        // implement your test here, by calling the exampleDao method to test.
+    public void testFindAll() {
+    	List<Geek> geeks = dao.findAll();
+    	assertEquals(geeks.get(0).getNom(),"HALTER");
+    	assertEquals(geeks.get(1).getNom(),"CAMILLE");
+    }
+    
+    @Test
+    public void testFindId(){
+    	Geek geek = dao.findById(1L);
+    	assertEquals("Romain", geek.getPrenom());
     }
     
 }

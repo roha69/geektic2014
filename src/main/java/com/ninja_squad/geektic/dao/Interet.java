@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @SequenceGenerator(sequenceName = "interet_seq", name="interet_seq", initialValue=1, allocationSize=100)
 @Table(name="interet")
@@ -21,11 +23,14 @@ public class Interet {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "interet_seq")
 	private Long id;
 	
+	@JsonIgnore
 	@ManyToMany(mappedBy = "interets") 
 	private Set<Geek> geeks;
 	
 	private String nom;
 
+	public Interet(){}
+	
 	public Interet(String nom) {
 		super();
 		this.nom = nom;
@@ -39,7 +44,7 @@ public class Interet {
 		this.id = id;
 	}
 
-	public Set<Geek> getGeek() {
+	public Set<Geek> getGeeks() {
 		return geeks;
 	}
 

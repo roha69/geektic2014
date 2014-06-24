@@ -4,17 +4,29 @@
     <head>
         <title>Geektic</title>
     </head>
-    <body ng-controller="HelloCtrl">
+    <body ng-controller="MainCtrl">
         
         <h1>Hello</h1>
 	<div>
 	  {{geeks.length}} geeks disponibles:
 	  <ul>
 	    <li ng-repeat="geek in geeks">
-	      {{geek.nom}} who is {{geeks.age}} years old.
+	      {{geek.nom}}
 	    </li>
 	  </ul>
 	</div>
+	
+	<form>
+		<select>
+			<option>Homme</option>
+			<option>Femme</option>		
+		</select>
+		
+		<div ng-repeat="interet in interets">
+			<input type="checkbox" id={{interet.id}} /> {{interet.nom}}
+		</div>
+	
+	</form>
 
         <script src="/js/angular.js"></script>
         <script src="/js/angular-route.js"></script>
