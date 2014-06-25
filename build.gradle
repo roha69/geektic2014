@@ -12,7 +12,7 @@ pmd {
     ruleSets = [
             "basic",
             "braces",
-			"naming"
+	    "naming"
             ]
 	ignoreFailures = true
 	sourceSets = [sourceSets.main]
