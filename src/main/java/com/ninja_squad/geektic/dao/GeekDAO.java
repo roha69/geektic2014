@@ -48,6 +48,5 @@ public class GeekDAO {
 		return query.getResultList();
 		
 	}
-	
-	
+		
 }

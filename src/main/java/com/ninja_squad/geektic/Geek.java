@@ -115,5 +115,9 @@ public class Geek {
 	public void setGravatar(String gravatar) {
 		this.gravatar = gravatar;
 	}
-	
+
+	public Long getId() {
+		return id;
+	}
+
 }

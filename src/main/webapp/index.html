@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
 
 <html ng-app="geektic">
 <head>
@@ -46,54 +49,13 @@
       }
     </style>
 </head>
-<body ng-controller="MainCtrl">
+<body>
 
 	<div class="jumbotron">
 		<h1 align="center">GeekTic</h1>
 	</div>
 
-	<div ng-view></div>
-	<hr>
-	<div class="container">
-
-
-		<p class="lead">je recherche : </p>
-		<select ng-model="genre" ng-options="genre.nom for genre in genres"></select><br>
-		<hr>
-		<p class="lead">Qui a pour centre d'intérets</p>
-		<div ng-repeat="interet in interets">
-			<label for={{interet.id}}><input type="checkbox" id={{interet.id}} /> {{interet.nom}}</label>
-		</div>
-
-		<hr>
-
-		<p class="text-center"><a class="btn btn-large btn-success" href="#">Lancer la recherche</a></p>
-
-		<hr>
-
-		<p class="lead">Nous avons sélectionnés les profils suivants pour vous :</p>
-
-		<hr>
-
-		<div class="row-fluid">
-			<div class="span4" ng-repeat="geek in geeks">
-				<h2>{{geek.prenom}} {{geek.nom}}</h2>
-				<img gravatar-src="'{{geek.mail}}'"
-					gravatar-size="100">
-				<p>{{geek.age}} ans</p>
-				<p>
-					<a class="btn" href="#">Voir son profil &raquo;</a>
-				</p>
-			</div>
-
-		</div>
-
-		<hr>
-
-		<p class="text-right">
-			{{geeks.length}} geeks cherche déjà l'amour ! <a href="#">S'incrire
-				&raquo;</a>
-		</p>
+	<div ng-view class="container">
 
 	</div>
 
@@ -103,5 +65,6 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/md5.js"></script>
 	<script src="js/angular-gravatar.js"></script>
+	<script src="js/checklist-model.js"></script>
 </body>
 </html>

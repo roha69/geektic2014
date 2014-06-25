@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ninja_squad.geektic.EnumGenre;
 import com.ninja_squad.geektic.Geek;
 import com.ninja_squad.geektic.dao.GeekDAO;
 
@@ -31,8 +32,17 @@ public class GeekService {
     
     @RequestMapping(method = GET)
     public List<Geek> listGeeks(){
-   
     	return geekDAO.findAll();
+    }
+    
+    @RequestMapping(value = " /genre/{genre}/interets/{interets}",method = GET)
+    public List<Geek> getGeekGenreInterets(@PathVariable String genre,@PathVariable List<Long> interets) {
+    	System.out.println("genre: "+genre.toString());
+    	for(Long interet : interets){
+    		System.out.println(interet);
+    	}
+    	EnumGenre enumGenre = genre.equalsIgnoreCase("HOMME")?EnumGenre.HOMME:EnumGenre.FEMME; 
+    	return geekDAO.findByCriteria(enumGenre, interets);
     }
     
 }

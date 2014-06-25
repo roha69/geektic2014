@@ -1,0 +1,28 @@
+
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+</head>
+
+<div class="container">
+
+	{{geek.nom}} {{geek.prenom}}<br/>
+	
+	<img gravatar-src="'{{geek.mail}}'" gravatar-size="100">
+	<br/>
+	Age : {{geek.age}}
+	<br>
+	mail : {{geek.mail}} 
+	
+	Ses Centres d'intérêts :<br/>
+    <ul ng-repeat="interet in geek.interets">
+		<li>
+			{{interet.nom}}
+		</li>				
+	</ul>
+	
+	<hr>
+	<hr>
+	<a class="btn btn-large btn-success" href="#">Retour</a>
+</div>
