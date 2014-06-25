@@ -1,4 +1,4 @@
-package com.ninja_squad.geektic.dao;
+package com.ninja_squad.geektic;
 
 public enum EnumGenre {
 	HOMME,FEMME

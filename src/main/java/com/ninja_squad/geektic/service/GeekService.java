@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.ninja_squad.geektic.dao.Geek;
+import com.ninja_squad.geektic.Geek;
 import com.ninja_squad.geektic.dao.GeekDAO;
 
 import javax.transaction.Transactional;

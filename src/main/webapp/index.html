@@ -1,35 +1,107 @@
 <!DOCTYPE html>
 
 <html ng-app="geektic">
-    <head>
-        <title>Geektic</title>
-        <link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
-    </head>
-    <body ng-controller="MainCtrl">
-	<h1 align="center">GEEKTIC</h1>
+<head>
+<title>Geektic</title>
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
 
-	
-	<div ng-view></div>
-	
-	<div style="margin:20px;">
-	  {{geeks.length}} geeks disponibles:
-	  <ul>
-	    <li ng-repeat="geek in geeks">
-	      {{geek.prenom}} {{geek.nom}}
-	    </li>
-	  </ul>
-	
-		<select ng-model="genre" ng-options="genre.nom for genre in genres"></select><br>
-		
-		<div ng-repeat="interet in interets">
-			<input type="checkbox" id={{interet.id}} /> {{interet.nom}}
-		</div>
-	
+      /* Custom container */
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
+
+      /* Main marketing message and sign up button */
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+        color:white;
+        background: none repeat scroll 0% 0% rgb(30, 140, 190);
+        padding-top:40px ;
+        padding-bottom:40px ;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
+
+      /* Supporting marketing content */
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+</head>
+<body ng-controller="MainCtrl">
+
+	<div class="jumbotron">
+		<h1 align="center">GeekTic</h1>
 	</div>
 
-        <script src="/js/angular.js"></script>
-        <script src="/js/angular-route.js"></script>
-        <script src="/js/app.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-    </body>
+	<div ng-view></div>
+	<hr>
+	<div class="container">
+
+
+		<p class="lead">je recherche : </p>
+		<select ng-model="genre" ng-options="genre.nom for genre in genres"></select><br>
+		<hr>
+		<p class="lead">Qui a pour centre d'intérets</p>
+		<div ng-repeat="interet in interets">
+			<label for={{interet.id}}><input type="checkbox" id={{interet.id}} /> {{interet.nom}}</label>
+		</div>
+
+		<hr>
+
+		<p class="text-center"><a class="btn btn-large btn-success" href="#">Lancer la recherche</a></p>
+
+		<hr>
+
+		<p class="lead">Nous avons sélectionnés les profils suivants pour vous :</p>
+
+		<hr>
+
+		<div class="row-fluid">
+			<div class="span4" ng-repeat="geek in geeks">
+				<h2>{{geek.prenom}} {{geek.nom}}</h2>
+				<img gravatar-src="'{{geek.mail}}'"
+					gravatar-size="100">
+				<p>{{geek.age}} ans</p>
+				<p>
+					<a class="btn" href="#">Voir son profil &raquo;</a>
+				</p>
+			</div>
+
+		</div>
+
+		<hr>
+
+		<p class="text-right">
+			{{geeks.length}} geeks cherche déjà l'amour ! <a href="#">S'incrire
+				&raquo;</a>
+		</p>
+
+	</div>
+
+	<script src="/js/angular.js"></script>
+	<script src="/js/angular-route.js"></script>
+	<script src="/js/app.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/md5.js"></script>
+	<script src="js/angular-gravatar.js"></script>
+</body>
 </html>

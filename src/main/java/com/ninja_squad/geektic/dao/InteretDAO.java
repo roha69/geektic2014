@@ -1,5 +1,6 @@
 package com.ninja_squad.geektic.dao;
 
+import com.ninja_squad.geektic.Interet;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -8,7 +9,6 @@ import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
 
-import com.ninja_squad.geektic.dao.Interet;
 
 @Repository
 public class InteretDAO {

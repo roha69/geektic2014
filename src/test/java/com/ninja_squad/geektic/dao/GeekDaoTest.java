@@ -13,11 +13,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.Operations;
 import com.ninja_squad.dbsetup.operation.Operation;
+import com.ninja_squad.geektic.EnumGenre;
+import com.ninja_squad.geektic.Geek;
 
 /**
  * DAO Test GEEK
  * @author roha
  */
+@SuppressWarnings("unused")
 public class GeekDaoTest extends BaseDaoTest {
 
 	public static final Operation STANDARD_OPERATION = 

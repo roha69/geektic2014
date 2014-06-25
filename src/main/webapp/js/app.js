@@ -1,4 +1,4 @@
-var app = angular.module("geektic", ['ngRoute']);
+var app = angular.module("geektic", ['ngRoute', 'ui.gravatar']);
 
 app.controller('MainCtrl', function($scope, $http) {
 //    $http.get('/api/hello').success(function(helloMessage) {

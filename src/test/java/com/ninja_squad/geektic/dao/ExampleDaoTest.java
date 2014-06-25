@@ -3,6 +3,8 @@ package com.ninja_squad.geektic.dao;
 import com.ninja_squad.dbsetup.DbSetup;
 import com.ninja_squad.dbsetup.Operations;
 import com.ninja_squad.dbsetup.operation.Operation;
+import com.ninja_squad.geektic.EnumGenre;
+
 import org.junit.Before;
 import org.junit.Test;
 
