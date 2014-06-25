@@ -37,10 +37,6 @@ public class GeekService {
     
     @RequestMapping(value = " /genre/{genre}/interets/{interets}",method = GET)
     public List<Geek> getGeekGenreInterets(@PathVariable String genre,@PathVariable List<Long> interets) {
-    	System.out.println("genre: "+genre.toString());
-    	for(Long interet : interets){
-    		System.out.println(interet);
-    	}
     	EnumGenre enumGenre = genre.equalsIgnoreCase("HOMME")?EnumGenre.HOMME:EnumGenre.FEMME; 
     	return geekDAO.findByCriteria(enumGenre, interets);
     }

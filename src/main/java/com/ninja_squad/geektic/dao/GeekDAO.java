@@ -25,7 +25,10 @@ public class GeekDAO {
 	 * @return Geek 
 	 */
 	public Geek findById(Long id){
-		return entityManager.find(Geek.class, id);
+		TypedQuery<Geek> query = entityManager.createQuery("SELECT distinct g FROM Geek g left join fetch g.interets where g.id = :id", Geek.class);
+		query.setParameter("id", id);
+		return query.getResultList().get(0);
+		//return entityManager.find(Geek.class, id);
 	}
 	
 	/**

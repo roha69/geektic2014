@@ -45,7 +45,7 @@ app.controller('MainCtrl', function($scope, $http) {
 
 app.controller('ProfilCtrl', function($scope, $http, $routeParams) {
 
-	$http.get('/api/geek/id'+$routeParams.id).success(function(geek) {
+	$http.get('/api/geek/id/'+$routeParams.id).success(function(geek) {
 		$scope.geek = geek;
 	});
 

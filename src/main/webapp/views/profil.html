@@ -7,22 +7,36 @@
 
 <div class="container">
 
-	{{geek.nom}} {{geek.prenom}}<br/>
+<table class="noBorder">
+
+	<tr>
+		<td rowspan="4"><img gravatar-src="'{{geek.mail}}'" gravatar-size="100"></td>
+	</tr>
 	
-	<img gravatar-src="'{{geek.mail}}'" gravatar-size="100">
-	<br/>
-	Age : {{geek.age}}
-	<br>
-	mail : {{geek.mail}} 
+	<tr>
+		<td>{{geek.nom}} {{geek.prenom}}</td>
+	</tr>
 	
-	Ses Centres d'intérêts :<br/>
-    <ul ng-repeat="interet in geek.interets">
-		<li>
-			{{interet.nom}}
-		</li>				
-	</ul>
+	<tr>
+		<td>Age : {{geek.age}}</td>
+	</tr>
 	
-	<hr>
+	<tr>
+		<td>mail : {{geek.mail}} </td>
+	</tr>
+
+	<tr>
+		<td>
+		Ses Centres d'intérêts :<br/>
+	    <ul ng-repeat="interet in geek.interets">
+			<li>
+				{{interet.nom}}
+			</li>				
+		</ul>
+		</td>
+	</tr>	
+	
+	</table>
 	<hr>
 	<a class="btn btn-large btn-success" href="#">Retour</a>
 </div>

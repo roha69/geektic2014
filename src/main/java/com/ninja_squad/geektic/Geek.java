@@ -44,9 +44,6 @@ public class Geek {
 	           inverseJoinColumns = @JoinColumn(name = "ID_INTERET"))
 	public List<Interet> interets;
 	
-	@Transient
-	public String gravatar;
-
 	public Geek(){}
 	
 	public Geek(EnumGenre genre, String nom, String prenom, int age,
@@ -106,14 +103,6 @@ public class Geek {
 	
 	public void setInterets(List<Interet> interets) {
 		this.interets = interets;
-	}
-	
-	public String getGravatar() {
-		return gravatar;
-	}
-	
-	public void setGravatar(String gravatar) {
-		this.gravatar = gravatar;
 	}
 
 	public Long getId() {
