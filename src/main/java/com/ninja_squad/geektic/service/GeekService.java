@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ninja_squad.geektic.EnumGenre;
 import com.ninja_squad.geektic.Geek;
 import com.ninja_squad.geektic.dao.GeekDAO;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.sym;
 
 import javax.transaction.Transactional;
 
@@ -27,6 +28,7 @@ public class GeekService {
 	
     @RequestMapping(value = " /id/{id}",method = GET)
     public Geek getGeek(@PathVariable Long id) {
+    	geekDAO.increaseView(id);
     	return geekDAO.findById(id);
     }
     

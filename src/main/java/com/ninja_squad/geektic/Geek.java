@@ -37,6 +37,8 @@ public class Geek {
 	
 	public String mail;
 	
+	public int vues;
+	
 	
 	@ManyToMany 
 	@JoinTable(name = "GEEK_INTERET", 
@@ -108,5 +110,14 @@ public class Geek {
 	public Long getId() {
 		return id;
 	}
+
+	public int getVues() {
+		return vues;
+	}
+
+	public void setVues(int vues) {
+		this.vues = vues;
+	}
+	
 
 }

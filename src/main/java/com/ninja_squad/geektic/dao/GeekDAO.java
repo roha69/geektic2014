@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 
 import org.springframework.stereotype.Repository;
@@ -50,6 +51,13 @@ public class GeekDAO {
 		query.setParameter("genre", genre);
 		return query.getResultList();
 		
+	}
+
+	public void increaseView(Long id) {
+		System.out.println("increase view !");
+		Query query = entityManager.createQuery("UPDATE Geek set vues = vues +1 where id = :id");
+		query.setParameter("id", id);
+		query.executeUpdate();		
 	}
 		
 }
