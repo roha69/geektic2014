@@ -22,6 +22,12 @@ app.controller('MainCtrl', function($scope, $http, $routeParams, $location) {
 	$http.get('/api/interet/').success(function(interets) {
 		$scope.interets = interets;
 	});
+	
+	$http.get('/api/geek/count').success(function(count) {
+		$scope.count = count;
+	}).error(function(count){
+		$scope.count = count;
+	});
 
 	// valeurs cochées par défaut
 	$scope.interetSel = [];

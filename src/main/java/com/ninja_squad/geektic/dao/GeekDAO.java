@@ -52,7 +52,21 @@ public class GeekDAO {
 		return query.getResultList();
 		
 	}
+	
+	/**
+	 * Retourne le nombre geeks
+	 * @return int
+	 */
+	public int count(){
+		Query query = entityManager.createQuery("SELECT count(g.id) FROM Geek g");
+		Long count = (Long) query.getSingleResult();
+	    return (int) count.longValue();
+	}
 
+	/**
+	 * Ajoute 1 au nombre de vue du geek
+	 * @param id
+	 */
 	public void increaseView(Long id) {
 		Query query = entityManager.createQuery("UPDATE Geek set vues = vues +1 where id = :id");
 		query.setParameter("id", id);
