@@ -118,6 +118,5 @@ public class Geek {
 	public void setVues(int vues) {
 		this.vues = vues;
 	}
-	
 
 }

@@ -54,7 +54,6 @@ public class GeekDAO {
 	}
 
 	public void increaseView(Long id) {
-		System.out.println("increase view !");
 		Query query = entityManager.createQuery("UPDATE Geek set vues = vues +1 where id = :id");
 		query.setParameter("id", id);
 		query.executeUpdate();		

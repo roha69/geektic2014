@@ -10,9 +10,12 @@
 <!--<select ng-model="genre" ng-options="genre.nom for genre in genres"></select><br> -->
 <!--  <button class="btn btn-primary btn-large" ng-model="btn_homme" disabled="disabled"> HOMME </button> <a class="btn btn-primary btn-large" ng-model="btn_femme" href="#"> FEMME </a>-->
 <div class="row-fluid">
-	<label for="homme"><input checked='checked' autocomplete="off"
+	<label for="homme">
+		<input ng-model="genre" autocomplete="off"
 		type="radio" ng-click="chx_genre('HOMME')" name="genre" value="HOMME"
-		id="homme"> HOMME</label> <label for="femme"><input
+		id="homme"> HOMME</label>
+		 <label for="femme">
+		<input ng-model="genre"
 		autocomplete="off" type="radio" ng-click="chx_genre('FEMME')"
 		name="genre" value="FEMME" id="femme"> FEMME</label>
 </div>
@@ -59,8 +62,8 @@
 
 
 <div class="invisible">
-	**** DEBUG ****
-	<div ng-repeat="id in interetSel">{{id}}</div>
+	**** DEBUG ****<br />
+	<div ng-repeat="id in interetParam">{{id}}</div>
 
 	{{genre}}<br> *******************
 </div>
